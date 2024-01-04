@@ -1,0 +1,21 @@
+global class abc_schedular Implements Schedulable
+    {
+        global void execute(SchedulableContext sc)
+        {
+            setToMiko();
+        }
+
+        public void setToMiko()
+        {
+            List<Account> listAccounts = new List<Account>();
+          
+
+            for(Account acc : [select id,name from account where Rating != 'Hot'])
+            {
+               acc.Industry = 'Agriculture';
+                listAccounts.add(acc);
+            }
+
+            update listAccounts;
+        }
+    }
